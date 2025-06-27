@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Adults Only</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            color: #eee;
+        }
+        
+        header {
+            background: linear-gradient(to right, #ff4d4d, #990000);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px #000;
+        }
+        
+        .tagline {
+            font-style: italic;
+            margin-top: 5px;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 20px;
+            color: white;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #ff4d4d, #cc0000);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: linear-gradient(to right, #ff6666, #ff0000);
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+            margin-top: 30px;
+        }
+        
+        .disclaimer {
+            font-size: 0.8em;
+            color: #999;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 600px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Luxury Adults Only</h1>
+        <p class="tagline">Exclusive content for discerning viewers</p>
+    </header>
+    
+    <div class="gallery">
+        <!-- Gallery Item 1 -->
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Model 1">
+            <div class="overlay">
+                <h3>Sophia</h3>
+                <p>Exclusive photoshoot</p>
+                <a href="https://short-link.me/15PPa" class="btn" target="_blank">▶️ Play Now </a>
+            </div>
+        </div>
+        
+        <!-- Gallery Item 2 -->
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Model 2">
+            <div class="overlay">
+                <h3>Isabella</h3>
+                <p>Private collection</p>
+                <a href="https://short-link.me/15PPa" class="btn" target="_blank">▶️ Play Now </a>
+            </div>
+        </div>
+        
+        <!-- Gallery Item 3 -->
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Model 3">
+            <div class="overlay">
+                <h3>Emma</h3>
+                <p>Limited edition</p>
+                <a href="https://short-link.me/15PPa" class="btn" target="_blank">▶️ Play Now </a>
+            </div>
+        </div>
+        
+        <!-- Gallery Item 4 -->
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Model 4">
+            <div class="overlay">
+                <h3>Olivia</h3>
+                <p>Premium content</p>
+                <a href="https://short-link.me/15PPa" class="btn" target="_blank">▶️ Play Now </a>
+            </div>
+        </div>
+        
+        <!-- Gallery Item 5 -->
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Model 5">
+            <div class="overlay">
+                <h3>Ava</h3>
+                <p>VIP access only</p>
+                <a href="https://short-link.me/15PPa" class="btn" target="_blank">▶️ Play Now </a>
+            </div>
+        </div>
+        
+        <!-- Gallery Item 6 -->
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1504439468489-c8920d796a29?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Model 6">
+            <div class="overlay">
+                <h3>Mia</h3>
+                <p>Special edition</p>
+                <a href="https://short-link.me/15PPa" class="btn" target="_blank">▶️ Play Now </a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2023 Luxury Adults Only. All rights reserved.</p>
+        <p class="disclaimer">This website contains content intended for adult audiences only. By accessing this site, you confirm that you are at least 18 years of age.</p>
+    </footer>
+    
+    <script>
+        // Simple tracking for clicks (replace with your Adsterra tracking)
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                console.log('Ad link clicked:', this.href);
+                // You can add more tracking here
+            });
+        });
+    </script>
+</body>
+</html>

